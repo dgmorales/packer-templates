@@ -22,19 +22,19 @@ Write-Host 'Installing Guest Additions'
 & cmd /c certutil -addstore -f 'TrustedPublisher' A:\oracle-cert.cer
 
 if (Test-Path e:\VBoxWindowsAdditions.exe) {
-& E:\VBoxWindowsAdditions.exe /S
+  Start-Process E:\VBoxWindowsAdditions.exe -ArgumentList '/S' -Wait
 }
 
 Set-ItemProperty -Path 'HKLM:\SYSTEM\Setup\Status\SysprepStatus'  -Name  'GeneralizationState' -Value 7
 
 Write-Host 'Install puppet agent'
-& msiexec /qn /norestart /i https://downloads.puppetlabs.com/windows/puppet-agent-x64-latest.msi
+Start-Process msiexec -ArgumentList '/qn /norestart /i https://downloads.puppetlabs.com/windows/puppet-agent-x64-latest.msi' -Wait
 
 Write-Host 'Install salt minion'
-$salt_exefile = Salt-Minion-2016.3.3-AMD64-Setup.exe
-$salt_url = https://repo.saltstack.com/windows/$salt_exefile
-Invoke-WebRequest -Uri $salt_url -O $salt_exefile
-& $salt_exefile /S /start-service=1
+$salt_exefile = 'Salt-Minion-2016.3.3-AMD64-Setup.exe'
+$salt_url = "https://repo.saltstack.com/windows/$salt_exefile"
+#Invoke-WebRequest -Uri $salt_url -O $salt_exefile
+Start-Process .\\$salt_exefile -ArgumentList '/S /start-service=1' -Wait
 
 Write-Host 'Sdelete things'
 

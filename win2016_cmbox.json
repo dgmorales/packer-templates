@@ -24,11 +24,14 @@
       "shutdown_timeout": "15m",
       "floppy_files": [
         "answer_files/2016/Autounattend.xml",
-        "./scripts/sdelete.exe",
-        "./scripts/bootstrap.ps1",
-        "./scripts/oracle-cert.cer",
-        "./scripts/unattend.xml"
-        "./scripts/ansible-prep.ps1"
+        "scripts/sdelete.exe",
+        "scripts/bootstrap.ps1",
+        "scripts/oracle-cert.cer",
+        "scripts/unattend.xml",
+        "scripts/ansible-prep.ps1",
+        "scripts/winrm.ps1",
+        "scripts/microsoft-updates.bat",
+        "scripts/win-updates.ps1"
       ]
     }
   ],
