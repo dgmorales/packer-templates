@@ -133,18 +133,6 @@
                     <RequiresUserInput>true</RequiresUserInput>
                 </SynchronousCommand>
                 <!-- END WITH WINDOWS UPDATES -->
-                <SynchronousCommand wcm:action="add">
-                    <Order>96</Order>
-                    <RequiresUserInput>true</RequiresUserInput>
-                    <CommandLine>cmd.exe /c C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -File a:\winrm.ps1</CommandLine>
-                    <Description>Enable WinRM</Description>
-                </SynchronousCommand>
-                <SynchronousCommand wcm:action="add">
-                    <Order>98</Order>
-                    <RequiresUserInput>true</RequiresUserInput>
-                    <CommandLine>cmd.exe /c C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -File a:\ansible-prep.ps1</CommandLine>
-                    <Description>Ansible WinRM adjustments</Description>
-                </SynchronousCommand>
             </FirstLogonCommands>
             <UserAccounts>
                 <AdministratorPassword>
